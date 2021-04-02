@@ -12,6 +12,6 @@ public class RepoController {
 
     public void users(){
         UserRepo userRepo = new UserRepo();
-        userRepo.printUsers();
+        userRepo.userList();
     }
 }
