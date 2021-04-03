@@ -14,7 +14,7 @@ public class UserRepo {
         return userList;
     }
 
-    public void addUserToList(User user) {
+    public void add(User user) {
         userList.add(user);
     }
 }

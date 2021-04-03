@@ -13,11 +13,13 @@ public class RepoController {
 
     private final UserRepo userRepo;
 
-    RepoController(UserRepo userRepo){
+    public RepoController(UserRepo userRepo){
         this.userRepo = userRepo;
     }
 
     List<User> userList = new ArrayList<>();
+
+
     @ResponseBody
     @GetMapping("/users")
 
@@ -43,7 +45,7 @@ public class RepoController {
         }
         else {
             User user = new User(firstName, lastName, age);
-            userRepo.addUserToList(user);
+            userRepo.add(user);
             return "redirect:/success.html";
         }
     }
