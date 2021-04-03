@@ -32,7 +32,7 @@ public class RepoController {
     @GetMapping("/add")
     public String addUser(@RequestParam(name = "imie") String firstName,
                           @RequestParam(name = "nazwisko", required = false) String lastName,
-                          @RequestParam(name = "wiek", required = false) int age) {
+                          @RequestParam(name = "wiek", required = false) Integer age) {
         if (firstName.equals("")){
             return "redirect:/err.html";
         }
