@@ -2,6 +2,7 @@ package pl.biomechanika.demo;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
@@ -28,5 +29,17 @@ public class RepoController {
         return finalList.toString();
     }
 
+    @GetMapping("/add")
+    public String addUser(@RequestParam(name = "imie") String firstName,
+                          @RequestParam(name = "nazwisko", required = false) String lastName,
+                          @RequestParam(name = "wiek", required = false) int age) {
+        if (firstName.equals("")){
+            return "redirect:/err.html";
+        }
+        else {
+            User user = new User(firstName, lastName, age);
+            return "redirect:/success.html";
+        }
+    }
 }
 
