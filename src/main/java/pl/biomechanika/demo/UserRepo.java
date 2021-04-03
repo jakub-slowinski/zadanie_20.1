@@ -8,16 +8,13 @@ import java.util.List;
 @Repository
 public class UserRepo {
 
-    UserRepo userRepo;
+    private List<User> userList = new ArrayList<>();
 
-    List<User> userList = new ArrayList<>();
-
-    public UserRepo getUserRepo() {
-        return userRepo;
+    public List<User> getUserList() {
+        return userList;
     }
 
-    public void setUserRepo(UserRepo userRepo) {
-        this.userRepo = userRepo;
+    public void addUserToList(User user) {
+        userList.add(user);
     }
-
 }

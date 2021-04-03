@@ -11,13 +11,18 @@ import java.util.List;
 @Controller
 public class RepoController {
 
-    UserRepo userRepo;
+    private final UserRepo userRepo;
 
+    RepoController(UserRepo userRepo){
+        this.userRepo = userRepo;
+    }
+
+    List<User> userList = new ArrayList<>();
     @ResponseBody
     @GetMapping("/users")
 
     public String users() {
-        List<User> userList = new ArrayList<>();
+
         userList.add(new User("Marian", "Kowalski", 34));
         userList.add(new User("Andrzej", "Maksymiuk", 44));
         userList.add(new User("Bolesław", "Krzywousty", 54));
@@ -38,6 +43,7 @@ public class RepoController {
         }
         else {
             User user = new User(firstName, lastName, age);
+            userRepo.addUserToList(user);
             return "redirect:/success.html";
         }
     }
