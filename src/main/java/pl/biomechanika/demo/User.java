@@ -2,9 +2,9 @@ package pl.biomechanika.demo;
 
 public class User {
 
-    String firstName;
-    String lastName;
-    int age;
+    private String firstName;
+    private String lastName;
+    private int age;
 
     public User(String firstName, String lastName, int age) {
         this.firstName = firstName;
